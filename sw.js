@@ -1,8 +1,10 @@
-const CACHE = 'study-tracker-v1';
+const CACHE = 'study-tracker-v2';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  '/study-tracker/',
+  '/study-tracker/index.html',
+  '/study-tracker/manifest.json',
+  '/study-tracker/icons/icon-192.png',
+  '/study-tracker/icons/icon-512.png',
   'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js'
 ];
 
@@ -29,7 +31,7 @@ self.addEventListener('fetch', e => {
         const clone = resp.clone();
         caches.open(CACHE).then(c => c.put(e.request, clone));
         return resp;
-      }).catch(() => caches.match('/index.html'));
+      }).catch(() => caches.match('/study-tracker/index.html'));
     })
   );
 });
